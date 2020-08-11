@@ -41,7 +41,7 @@
   "engines": {
     "node": ">=12.13.1"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Exposes CommonDB as Grafana Json Datasource (express middleware)",
   "author": "Natural Cycles Team",
   "license": "MIT"
