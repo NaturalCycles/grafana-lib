@@ -1,6 +1,5 @@
 import { CommonTimeSeriesDao } from '@naturalcycles/db-lib/dist/timeseries/commonTimeSeriesDao'
-import { pMap } from '@naturalcycles/js-lib'
-import { dayjs } from '@naturalcycles/time-lib'
+import { localTime, pMap } from '@naturalcycles/js-lib'
 import type { RequestHandler } from 'express'
 import { getRouter } from './getRouter'
 import {
@@ -45,8 +44,8 @@ export function createGrafanaJsonDatasourceHandler(
       async targetObj => {
         const points = await tsDao.query({
           series: targetObj.target,
-          fromIncl: dayjs(range.from).unixMillis(),
-          toExcl: dayjs(range.to).unixMillis(),
+          fromIncl: localTime(range.from).unixMillis(),
+          toExcl: localTime(range.to).unixMillis(),
         })
 
         return {
